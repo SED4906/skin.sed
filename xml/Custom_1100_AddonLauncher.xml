@@ -16,23 +16,10 @@
 			<imagepath background="true" colordiffuse="bg_overlay">$VAR[AddonsFanartVar]</imagepath>
 			<visible>!Player.HasMedia</visible>
 		</control>
-		<include content="TopBar" />
-		<include>BottomBar</include>
-		<control type="group">
-			<left>-10000</left>
-			<include content="InfoList">
-				<param name="path" value="addons://outdated/" />
-				<param name="bottom" value="1" />
-				<param name="width" value="1" />
-				<param name="list_id" value="8000" />
-				<param name="item_label" value="" />
-			</include>
-		</control>
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
 			<control type="group" id="400">
 				<include>OpenClose_Right</include>
-				<left>0</left>
 				<include content="AddonLauncherPanel">
 					<param name="group_id" value="500" />
 					<param name="id" value="video" />
@@ -89,20 +76,22 @@
 			</control>
 			<control type="group">
 				<include>OpenClose_Left</include>
-				<control type="wraplist" id="9000">
-					<left>0</left>
-					<top>0</top>
-					<width>1920</width>
-					<height>95</height>
+				<include content="ContentPanel">
+					<param name="width" value="523" />
+				</include>
+				<control type="fixedlist" id="9000">
+					<left>1</left>
+					<top>300</top>
+					<width>462</width>
+					<height>855</height>
 					<pagecontrol>70</pagecontrol>
 					<movement>6</movement>
 					<focusposition>0</focusposition>
-					<orientation>horizontal</orientation>
-					<onup>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onup>
-					<ondown>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</ondown>
+					<onup>700</onup>
+					<ondown>700</ondown>
 					<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<focusedlayout width="95" height="95">
+					<focusedlayout height="95" width="462">
 						<control type="image">
 							<left>0</left>
 							<right>0</right>
@@ -142,7 +131,7 @@
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</focusedlayout>
-					<itemlayout height="95" width="95">
+					<itemlayout height="95" width="462">
 						<control type="label">
 							<left>104</left>
 							<bottom>0</bottom>
@@ -150,7 +139,6 @@
 							<aligny>center</aligny>
 							<font>font14</font>
 							<label>$INFO[ListItem.Label]</label>
-							<textcolor>00000000</textcolor>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="image">
@@ -228,32 +216,111 @@
 							<property name="path">addons://all/</property>
 							<property name="menu_id">$NUMBER[507]</property>
 						</item>
-						<item id="9">
-							<label>Add-on Browser</label>
-							<onclick>ActivateWindow(addonbrowser,root)</onclick>
-							<thumb>icons/add-ons2.png</thumb>
-							<property name="id">add-ons</property>
-							<property name="path">addons://</property>
-							<property name="menu_id">$NUMBER[801]</property>
-						</item>
-						<item id="10">
-							<label>Update Add-ons</label>
-							<onclick>ActivateWindow(addonbrowser,addons://outdated/,return)</onclick>
-							<thumb>icons/updatelibrary2.png</thumb>
-							<property name="id">update</property>
-							<property name="path">addons://</property>
-							<property name="menu_id">$NUMBER[802]</property>
-						</item>
-						<item id="11">
-							<label>Add-on Settings</label>
-							<onclick>ActivateWindow(systemsettings,addons)</onclick>
-							<thumb>icons/settings2.png</thumb>
-							<property name="id">settings</property>
-							<property name="path">settings://add-ons/</property>
-							<property name="menu_id">$NUMBER[803]</property>
-						</item>
 					</content>
 				</control>
+			</control>
+			<control type="grouplist" id="700">
+				<orientation>horizontal</orientation>
+				<left>32</left>
+				<top>135</top>
+				<height>120</height>
+				<onup>SetFocus(9000,99,absolute)</onup>
+				<ondown>SetFocus(9000,0,absolute)</ondown>
+				<include>OpenClose_Left</include>
+				<onright>400</onright>
+				<usecontrolcoords>true</usecontrolcoords>
+				<control type="radiobutton" id="801">
+					<width>120</width>
+					<height>120</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<onclick>ActivateWindow(addonbrowser,root)</onclick>
+					<font>font12</font>
+					<label/>
+					<textoffsetx>40</textoffsetx>
+					<textwidth>230</textwidth>
+					<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
+					<texturenofocus />
+					<radioposx>39</radioposx>
+					<radioposy>0</radioposy>
+					<radiowidth>40</radiowidth>
+					<radioheight>40</radioheight>
+					<textureradioonfocus>icons/submenu/add-ons.png</textureradioonfocus>
+					<textureradioonnofocus>icons/submenu/add-ons.png</textureradioonnofocus>
+					<textureradioofffocus>icons/submenu/add-ons.png</textureradioofffocus>
+					<textureradiooffnofocus>icons/submenu/add-ons.png</textureradiooffnofocus>
+				</control>
+				<control type="radiobutton" id="802">
+					<top>5</top>
+					<width>157</width>
+					<height>110</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<onclick>ActivateWindow(addonbrowser,addons://outdated/,return)</onclick>
+					<font>font12</font>
+					<label/>
+					<textoffsetx>40</textoffsetx>
+					<textwidth>230</textwidth>
+					<texturefocus border="30" colordiffuse="button_focus">buttons/dialogbutton-fo.png</texturefocus>
+					<texturenofocus />
+					<radioposx>35</radioposx>
+					<radioposy>0</radioposy>
+					<radiowidth>40</radiowidth>
+					<radioheight>40</radioheight>
+					<enable>Integer.IsGreater(Container(8000).NumItems,0)</enable>
+					<textureradioonfocus>icons/submenu/updatelibrary.png</textureradioonfocus>
+					<textureradioonnofocus>icons/submenu/updatelibrary.png</textureradioonnofocus>
+					<textureradioofffocus>icons/submenu/updatelibrary.png</textureradioofffocus>
+					<textureradiooffnofocus>icons/submenu/updatelibrary.png</textureradiooffnofocus>
+					<textureradioondisabled colordiffuse="disabled">icons/submenu/updatelibrary.png</textureradioondisabled>
+					<textureradiooffdisabled colordiffuse="disabled">icons/submenu/updatelibrary.png</textureradiooffdisabled>
+				</control>
+				<control type="radiobutton" id="803">
+					<width>120</width>
+					<height>120</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<onclick>ActivateWindow(systemsettings,addons)</onclick>
+					<font>font12</font>
+					<label/>
+					<textoffsetx>40</textoffsetx>
+					<textwidth>230</textwidth>
+					<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
+					<texturenofocus />
+					<radioposx>40</radioposx>
+					<radioposy>0</radioposy>
+					<radiowidth>40</radiowidth>
+					<radioheight>40</radioheight>
+					<textureradioonfocus>icons/settings.png</textureradioonfocus>
+					<textureradioonnofocus>icons/settings.png</textureradioonnofocus>
+					<textureradioofffocus>icons/settings.png</textureradioofffocus>
+					<textureradiooffnofocus>icons/settings.png</textureradiooffnofocus>
+				</control>
+				<control type="label" id="804">
+					<left>-217</left>
+					<top>22</top>
+					<height>70</height>
+					<width>100</width>
+					<aligny>center</aligny>
+					<align>center</align>
+					<font>font32_title</font>
+					<label>$VAR[AddonCountLabel]</label>
+					<shadowcolor>text_shadow</shadowcolor>
+				</control>
+			</control>
+			<include content="TopBar">
+				<param name="breadcrumbs_label" value="$LOCALIZE[24001]" />
+			</include>
+			<include>BottomBar</include>
+			<control type="group">
+				<left>-10000</left>
+				<include content="InfoList">
+					<param name="path" value="addons://outdated/" />
+					<param name="bottom" value="1" />
+					<param name="width" value="1" />
+					<param name="list_id" value="8000" />
+					<param name="item_label" value="" />
+				</include>
 			</control>
 		</control>
 	</controls>

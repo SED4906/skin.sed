@@ -135,18 +135,16 @@
 					</control>
 					<control type="grouplist" id="$PARAM[button_id]567">
 						<width>100%</width>
-						<orientation>horizontal</orientation>
-						<align>center</align>
 						<onup>9000</onup>
 						<ondown>9000</ondown>
+						<orientation>horizontal</orientation>
+						<align>center</align>
 						<onleft>9000</onleft>
 						<control type="button" id="$PARAM[button_id]">
 							<width>auto</width>
 							<height>110</height>
 							<label>$PARAM[button_label]</label>
 							<textoffsetx>40</textoffsetx>
-							<onup>9000</onup>
-							<ondown>9000</ondown>
 							<onclick>$PARAM[button_onclick]</onclick>
 							<align>center</align>
 							<texturefocus border="23" colordiffuse="button_focus">buttons/dialogbutton-fo.png</texturefocus>
@@ -158,8 +156,6 @@
 							<height>110</height>
 							<label>$PARAM[button2_label]</label>
 							<textoffsetx>40</textoffsetx>
-							<onup>9000</onup>
-							<ondown>9000</ondown>
 							<onclick>$PARAM[button2_onclick]</onclick>
 							<onclick>SetFocus(9000)</onclick>
 							<align>center</align>
@@ -172,8 +168,6 @@
 							<height>110</height>
 							<label>$PARAM[button3_label]</label>
 							<textoffsetx>40</textoffsetx>
-							<onup>9000</onup>
-							<ondown>9000</ondown>
 							<onclick>$PARAM[button3_onclick]</onclick>
 							<onclick>SetFocus(9000)</onclick>
 							<align>center</align>
@@ -980,7 +974,7 @@
 	<include name="WidgetListCommon">
 		<scrolltime tween="cubic" easing="out">500</scrolltime>
 		<orientation>horizontal</orientation>
-		<onup>9000</onup>
+		<onleft>9000</onleft>
 		<onright>noop</onright>
 		<onunfocus>SetProperty(listposition,$INFO[Container($PARAM[list_id]).Position],home)</onunfocus>
 		<onfocus>Control.Move($PARAM[list_id],-$INFO[Container($PARAM[list_id]).Position])</onfocus>
