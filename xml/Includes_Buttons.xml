@@ -155,11 +155,11 @@
 		</definition>
 	</include>
 	<include name="IconButton">
-		<param name="height">24</param>
+		<param name="height">120</param>
 		<param name="visible">true</param>
 		<definition>
-			<control type="button" id="$PARAM[control_id]">
-				<width>24</width>
+			<control type="radiobutton" id="$PARAM[control_id]">
+				<width>120</width>
 				<height>$PARAM[height]</height>
 				<align>center</align>
 				<aligny>center</aligny>
@@ -167,8 +167,16 @@
 				<onclick>$PARAM[onclick_2]</onclick>
 				<font></font>
 				<label>$PARAM[label]</label>
-				<texturefocus colordiffuse="button_focus">$PARAM[icon]</texturefocus>
-				<texturenofocus>$PARAM[icon]</texturenofocus>
+				<texturefocus colordiffuse="button_focus">buttons/roundbutton-fo.png</texturefocus>
+				<texturenofocus />
+				<radioposx>40</radioposx>
+				<radioposy>0</radioposy>
+				<radiowidth>40</radiowidth>
+				<radioheight>40</radioheight>
+				<textureradioonfocus>$PARAM[icon]</textureradioonfocus>
+				<textureradioonnofocus colordiffuse="grey">$PARAM[icon]</textureradioonnofocus>
+				<textureradioofffocus>$PARAM[icon]</textureradioofffocus>
+				<textureradiooffnofocus colordiffuse="grey">$PARAM[icon]</textureradiooffnofocus>
 				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>
