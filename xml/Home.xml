@@ -974,6 +974,16 @@
 					</include>
 				</control>
 			</control>
+			<control type="button" id="69900">
+				<label></label>
+				<left>0</left>
+				<top>56</top>
+				<bottom>64</bottom>
+				<width>4</width>
+				<texturefocus />
+				<texturenofocus />
+				<onclick>SetFocus(9000)</onclick>
+			</control>
 			<control
 				type="group">
 				<depth>DepthContentPanel</depth>

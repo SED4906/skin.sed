@@ -7,7 +7,8 @@
 	<controls>
 		<include>DefaultBackground</include>
 		<control type="group">
-			<animation effect="fade" start="100" end="0" time="200" tween="sine" condition="$EXP[infodialog_active]">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" tween="sine"
+				condition="$EXP[infodialog_active]">Conditional</animation>
 			<include>View_50_List</include>
 			<include>View_52_IconWall</include>
 			<include>View_53_Shift</include>
@@ -33,7 +34,9 @@
 				<height>70</height>
 				<animation effect="fade" start="0" end="100" time="300" delay="300">WindowOpen</animation>
 				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
-				<include condition="!Skin.HasSetting(hide_mediaflags) + ![Window.IsVisible(songinformation) | Window.IsVisible(musicinformation)]">MediaFlags</include>
+				<include
+					condition="!Skin.HasSetting(hide_mediaflags) + ![Window.IsVisible(songinformation) | Window.IsVisible(musicinformation)]">
+					MediaFlags</include>
 			</control>
 			<include>MediaMenuMouseOverlay</include>
 			<control type="group">
@@ -79,10 +82,15 @@
 					<control type="button" id="622">
 						<include>MediaMenuItemsCommon</include>
 						<label>$LOCALIZE[31117]</label>
-						<onclick condition="System.AddonIsEnabled(plugin.library.node.editor)">ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=music,return)</onclick>
-						<onclick condition="System.HasAddon(plugin.library.node.editor) + !System.AddonIsEnabled(plugin.library.node.editor)">EnableAddon(plugin.library.node.editor)</onclick>
-						<onclick condition="!System.HasAddon(plugin.library.node.editor)">InstallAddon(plugin.library.node.editor)</onclick>
-						<visible>String.IsEmpty(Container.FolderPath) + String.IsEmpty(Container.PluginName)</visible>
+						<onclick condition="System.AddonIsEnabled(plugin.library.node.editor)">
+							ActivateWindow(programs,plugin://plugin.library.node.editor/?ltype=music,return)</onclick>
+						<onclick
+							condition="System.HasAddon(plugin.library.node.editor) + !System.AddonIsEnabled(plugin.library.node.editor)">
+							EnableAddon(plugin.library.node.editor)</onclick>
+						<onclick condition="!System.HasAddon(plugin.library.node.editor)">
+							InstallAddon(plugin.library.node.editor)</onclick>
+						<visible>String.IsEmpty(Container.FolderPath) +
+							String.IsEmpty(Container.PluginName)</visible>
 					</control>
 					<include>MediaMenuNowPlaying</include>
 				</control>
