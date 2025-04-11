@@ -1084,7 +1084,7 @@
 					<font>font16</font>
 					<shadowcolor>text_shadow</shadowcolor>
 					<height>57</height>
-					<top>12</top>
+					<top>4</top>
 					<right>64</right>
 					<width>120</width>
 					<animation effect="fade" start="100" end="0" time="300"

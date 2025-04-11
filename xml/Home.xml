@@ -988,91 +988,84 @@
 				type="group">
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
-				<left>-462</left>
-				<animation effect="slide" end="0,0" time="100">Unfocus</animation>
-				<animation effect="slide" end="462,0" time="100">Focus</animation>
-				<include content="ContentPanel">
-					<param name="width" value="522" />
-				</include>
+				<left>0</left>
+				<animation effect="slide" end="0,0" time="100">Focus</animation>
+				<animation effect="slide" start="0,0" end="-341,0" time="100" condition="!Control.HasFocus(9000) + !Control.HasFocus(69600)">Conditional</animation>
+				<control type="image">
+					<texture flipx="$PARAM[flipx]" colordiffuse="EDFFFFFF">lists/panel.png</texture>
+					<bordersize>0</bordersize>
+					<width>341</width>
+					<left>0</left>
+				</control>
 				<control type="fixedlist" id="9000">
-					<left>-462</left>
-					<top>240</top>
-					<width>462</width>
-					<bottom>-10</bottom>
+					<left>0</left>
+					<top>65</top>
+					<width>341</width>
 					<movement>7</movement>
-					<focusposition>0</focusposition>
+					<focusposition>5</focusposition>
 					<onfocus>ClearProperty(listposition,home)</onfocus>
 					<onright>SetFocus($INFO[Container(9000).ListItem.Property(menu_id)])</onright>
 					<onup>69700</onup>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<animation effect="slide" end="0,0" time="100">Unfocus</animation>
-					<animation effect="slide" end="462,0" time="100">Focus</animation>
+					<animation effect="slide" end="0,0" time="100">Focus</animation>
+					<animation effect="slide" start="0,0" end="-341,0" time="100" condition="!Control.HasFocus(9000) + !Control.HasFocus(69600)">Conditional</animation>
 					<focusedlayout height="68">
 						<control type="group">
-							<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
 							<control type="image">
 								<left>0</left>
 								<top>0</top>
-								<width>462</width>
+								<width>341</width>
 								<height>68</height>
 								<texture colordiffuse="button_focus">lists/focus.png</texture>
-								<animation effect="fade" start="100" end="0" time="0"
-									condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] | System.HasActiveModalDialog">
-									Conditional</animation>
 							</control>
 							<control type="image">
-								<left>-3</left>
-								<top>1</top>
-								<width>68</width>
-								<height>68</height>
+								<left>8</left>
+								<top>8</top>
+								<width>56</width>
+								<height>56</height>
 								<texture colordiffuse="button_focus">$INFO[ListItem.Art(thumb)]</texture>
-								<animation effect="fade" start="0" end="100" time="300"
-									reversible="false">Focus</animation>
 							</control>
 							<control type="image">
 								<left>0</left>
-								<top>0</top>
-								<width>68</width>
-								<height>68</height>
+								<top>15</top>
+								<width>7</width>
+								<height>38</height>
 								<texture colordiffuse="51FFFFFF">colors/black.png</texture>
-								<animation effect="fade" start="100" end="0" time="0"
-									condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] | System.HasActiveModalDialog">
-									Conditional</animation>
 							</control>
 						</control>
 						<control type="image">
-							<left>-3</left>
-							<top>1</top>
-							<width>68</width>
-							<height>68</height>
+							<left>8</left>
+							<top>8</top>
+							<width>56</width>
+							<height>56</height>
 							<texture>$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 						<control type="label">
 							<left>104</left>
 							<top>0</top>
 							<height>68</height>
-							<width>560</width>
+							<width>237</width>
 							<aligny>center</aligny>
-							<font>font37</font>
+							<font>font27</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</focusedlayout>
 					<itemlayout height="68">
 						<control type="image">
-							<left>-3</left>
-							<top>1</top>
-							<width>68</width>
-							<height>68</height>
+							<left>8</left>
+							<top>8</top>
+							<width>56</width>
+							<height>56</height>
 							<texture colordiffuse="44FFFFFF">$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 						<control type="label">
 							<left>104</left>
 							<top>0</top>
 							<height>68</height>
-							<width>560</width>
+							<width>237</width>
 							<aligny>center</aligny>
-							<font>font37</font>
+							<font>font27</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
