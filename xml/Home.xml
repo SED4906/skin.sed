@@ -43,6 +43,9 @@
 					<effect type="slide" end="0,20" time="180" tween="sine" delay="80" />
 				</animation>
 				<include>OpenClose_Right</include>
+				<control type="group" id="4999">
+					<visible>false</visible>
+				</control>
 				<control type="group" id="5000">
 					<visible>String.IsEqual(Container(9000).ListItem.Property(id),movies)</visible>
 					<include content="Visible_Right_Delayed">
@@ -850,18 +853,18 @@
 				</control>
 			</control>
 			<control type="group">
-				<animation effect="slide" start="0,0" end="-522,0" time="100" reversible="true" condition="!Control.HasFocus(9000) + !Control.HasFocus(700) + !Control.HasFocus(801) + !Control.HasFocus(802) + !Control.HasFocus(803) + !Control.HasFocus(804) + !Control.HasFocus(805)">Conditional</animation>
-				<animation effect="slide" start="-522,0" end="0,0" time="100" reversible="true" condition="Control.HasFocus(9000) | Control.HasFocus(700) | Control.HasFocus(801) | Control.HasFocus(802) | Control.HasFocus(803) | Control.HasFocus(804) | Control.HasFocus(805)">Conditional</animation>
+				<animation effect="slide" start="0,0" end="-401,0" time="100" reversible="true" condition="!Control.HasFocus(9000)">Conditional</animation>
+				<animation effect="slide" start="-401,0" end="0,0" time="100" reversible="true" condition="Control.HasFocus(9000)">Conditional</animation>
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
 				<include content="ContentPanel">
-					<param name="width" value="522" />
+					<param name="width" value="401" />
 				</include>
 				<control type="fixedlist" id="9000">
-					<hitrect x="0" y="-240" width="522"/>
+					<hitrect x="0" y="-240" width="401"/>
 					<left>0</left>
 					<top>240</top>
-					<width>462</width>
+					<width>341</width>
 					<bottom>-10</bottom>
 					<movement>7</movement>
 					<focusposition>0</focusposition>
@@ -870,67 +873,67 @@
 					<onup>700</onup>
 					<ondown>700</ondown>
 					<scrolltime tween="cubic" easing="out">500</scrolltime>
-					<focusedlayout height="95">
+					<focusedlayout height="68">
 						<control type="group">
 							<animation effect="fade" start="100" end="0" time="0">UnFocus</animation>
 							<control type="image">
 								<left>0</left>
 								<top>0</top>
 								<width>462</width>
-								<height>95</height>
-								<texture colordiffuse="button_focus">lists/focus.png</texture>
+								<height>68</height>
+								<texture colordiffuse="button_alt_focus">lists/focus.png</texture>
 								<animation effect="fade" start="100" end="0" time="0" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] | System.HasActiveModalDialog">Conditional</animation>
 							</control>
 							<control type="image">
-								<left>-3</left>
+								<left>20</left>
 								<top>1</top>
-								<width>95</width>
-								<height>95</height>
+								<width>68</width>
+								<height>68</height>
 								<texture colordiffuse="button_focus">$INFO[ListItem.Art(thumb)]</texture>
 								<animation effect="fade" start="0" end="100" time="300" reversible="false">Focus</animation>
 							</control>
 							<control type="image">
 								<left>0</left>
-								<top>0</top>
-								<width>95</width>
-								<height>95</height>
-								<texture colordiffuse="51FFFFFF">colors/black.png</texture>
+								<top>15</top>
+								<width>7</width>
+								<height>38</height>
+								<texture colordiffuse="button_focus">buttons/list-accent.png</texture>
 								<animation effect="fade" start="100" end="0" time="0" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] | System.HasActiveModalDialog">Conditional</animation>
 							</control>
 						</control>
 						<control type="image">
-							<left>-3</left>
+							<left>20</left>
 							<top>1</top>
-							<width>95</width>
-							<height>95</height>
+							<width>68</width>
+							<height>68</height>
 							<texture>$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 						<control type="label">
 							<left>104</left>
 							<top>0</top>
-							<height>95</height>
+							<height>68</height>
 							<width>560</width>
 							<aligny>center</aligny>
-							<font>font37</font>
+							<font>font25_title</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</focusedlayout>
-					<itemlayout height="95">
+					<itemlayout height="68">
 						<control type="image">
-							<left>-3</left>
+							<left>20</left>
 							<top>1</top>
-							<width>95</width>
-							<height>95</height>
+							<width>68</width>
+							<height>68</height>
 							<texture colordiffuse="44FFFFFF">$INFO[ListItem.Art(thumb)]</texture>
 						</control>
 						<control type="label">
 							<left>104</left>
 							<top>0</top>
-							<height>95</height>
+							<height>68</height>
 							<width>560</width>
 							<aligny>center</aligny>
-							<font>font37</font>
+							<font>font25_title</font>
 							<label>$INFO[ListItem.Label]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
@@ -1047,51 +1050,21 @@
 							<property name="id">weather</property>
 							<visible>!Skin.HasSetting(HomeMenuNoWeatherButton)</visible>
 						</item>
+						<item>
+							<label>$LOCALIZE[21417]</label>
+							<onclick>ActivateWindow(settings)</onclick>
+							<property name="menu_id">$NUMBER[4999]</property>
+							<thumb>icons/sidemenu/settings.png</thumb>
+							<property name="id">no_menu</property>
+						</item>
+						<item>
+							<label>$LOCALIZE[33060]</label>
+							<onclick>ActivateWindow(shutdownmenu)</onclick>
+							<property name="menu_id">$NUMBER[4999]</property>
+							<thumb>icons/sidemenu/power.png</thumb>
+							<property name="id">no_menu</property>
+						</item>
 					</content>
-				</control>
-				<control type="grouplist" id="700">
-					<orientation>horizontal</orientation>
-					<itemgap>0</itemgap>
-					<left>-8</left>
-					<width>480</width>
-					<height>110</height>
-					<top>100</top>
-					<onup>SetFocus(9000,99,absolute)</onup>
-					<ondown>SetFocus(9000,0,absolute)</ondown>
-					<onright>2000</onright>
-					<align>justify</align>
-					<include content="IconButton">
-						<param name="control_id" value="804" />
-						<param name="onclick" value="ActivateWindow(shutdownmenu)" />
-						<param name="icon" value="icons/power.png" />
-						<param name="label" value="$LOCALIZE[33060]" />
-					</include>
-					<include content="IconButton">
-						<param name="control_id" value="802" />
-						<param name="onclick" value="ActivateWindow(settings)" />
-						<param name="icon" value="icons/settings.png" />
-						<param name="label" value="$LOCALIZE[21417]" />
-					</include>
-					<include content="IconButton">
-						<param name="control_id" value="801" />
-						<param name="onclick" value="ActivateWindow(1107)" />
-						<param name="icon" value="icons/search.png" />
-						<param name="label" value="$LOCALIZE[137]" />
-					</include>
-					<include content="IconButton">
-						<param name="control_id" value="803" />
-						<param name="onclick" value="Fullscreen" />
-						<param name="icon" value="icons/now-playing/fullscreen.png" />
-						<param name="label" value="$LOCALIZE[31000]" />
-						<param name="visible" value="Player.HasMedia + !Player.IsRemote" />
-					</include>
-					<include content="IconButton">
-						<param name="control_id" value="805" />
-						<param name="onclick" value="ActivateWindow(playercontrols)" />
-						<param name="icon" value="icons/now-playing/fullscreen.png" />
-						<param name="label" value="$LOCALIZE[31000]" />
-						<param name="visible" value="Player.HasMedia + Player.IsRemote + !Player.HasAudio" />
-					</include>
 				</control>
 			</control>
 			<include>BottomBar</include>
@@ -1142,23 +1115,23 @@
 				</control>
 			</control>
 			<control type="group">
+				<visible>!Control.HasFocus(9000)</visible>
 				<control type="button">
-					<left>24</left>
-					<bottom>24</bottom>
-					<width>48</width>
-					<height>48</height>
+					<left>44</left>
+					<bottom>12</bottom>
+					<width>32</width>
+					<height>32</height>
 					<texturefocus colordiffuse="button_focus">frame/menu-nofo.png</texturefocus>
 					<texturenofocus colordiffuse="FFCCCCCC">frame/menu-nofo.png</texturenofocus>
 					<onclick>SetFocus(9000)</onclick>
-					<visible>!Control.HasFocus(9000) + !Control.HasFocus(700) + !Control.HasFocus(801) + !Control.HasFocus(802) + !Control.HasFocus(803) + !Control.HasFocus(804) + !Control.HasFocus(805)</visible>
 				</control>
 				<control type="label">
-					<left>80</left>
-					<bottom>24</bottom>
+					<left>86</left>
+					<bottom>16</bottom>
 					<width>96</width>
-					<height>48</height>
-					<label>Menu</label>
-					<visible>!Control.HasFocus(9000) + !Control.HasFocus(700) + !Control.HasFocus(801) + !Control.HasFocus(802) + !Control.HasFocus(803) + !Control.HasFocus(804) + !Control.HasFocus(805)</visible>
+					<height>32</height>
+					<font>font12</font>
+					<label>MENU</label>
 				</control>
 			</control>
 		</control>
